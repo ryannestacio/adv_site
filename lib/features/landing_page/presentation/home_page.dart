@@ -56,21 +56,32 @@ class HomePage extends StatelessWidget {
           : null,
       appBar: AppBar(
         title: const Text("Vasconcelos Advocacia"),
-        actions: [
-          TextButton(
-            onPressed: () {},
-            child: const Text("Sobre", style: TextStyle(color: Colors.white)),
-          ),
-          TextButton(
-            onPressed: () {},
-            child: const Text("Áreas", style: TextStyle(color: Colors.white)),
-          ),
-          TextButton(
-            onPressed: () {},
-            child: const Text("Contato", style: TextStyle(color: Colors.white)),
-          ),
-          const SizedBox(width: 20),
-        ],
+        actions: isMobile
+            ? []
+            : [
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Sobre",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Áreas",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Contato",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                const SizedBox(width: 20),
+              ],
       ),
 
       // SingleChildScrollView permite rolar a página para baixo

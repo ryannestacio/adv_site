@@ -24,7 +24,6 @@ class LawFirmApp extends StatelessWidget {
         '/': (context) =>
             const HomePage(), // O Flutter já entende que essa é a Home
       },
-
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
           builder: (context) => Scaffold(
