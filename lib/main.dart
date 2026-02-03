@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'features/landing_page/presentation/pages/home_page.dart';
+import 'core/theme/app_theme.dart';
+import 'features/landing_page/presentation/home_page.dart';
 
 void main() {
   runApp(const LawFirmApp());
@@ -12,11 +13,29 @@ class LawFirmApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Nome do Escritório',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.indigo, useMaterial3: true),
-      home: const Scaffold(
-        body: Center(child: Text("Site Advocacia - Em Construção")),
-      ),
+      debugShowCheckedModeBanner: true,
+      theme: AppTheme.lightTheme,
+
+      // CONFIGURAÇÃO CORRETA DE ROTAS:
+      initialRoute: '/', // Define por onde começar
+
+      // REMOVA ESTA LINHA:
+      // home: const HomePage(),
+      routes: {
+        '/': (context) =>
+            const HomePage(), // O Flutter já entende que essa é a Home
+      },
+
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (context) => Scaffold(
+            appBar: AppBar(title: const Text('Página Não Encontrada')),
+            body: const Center(
+              child: Text('404 - A página que você procura não existe.'),
+            ),
+          ),
+        );
+      },
     );
   }
 }
