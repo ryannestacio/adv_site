@@ -77,12 +77,12 @@ flutter:
   fonts:
    - family: Playfair Display
      fonts:
-       - asset: fonts/PlayfairDisplay-VariableFont_wght.ttf
+       - asset: lib/core/assets/fonts/Lato-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
    - family: Trajan Pro
      fonts:
-       - asset: fonts/Lato-Regular.ttf
+       - asset: lib/core/assets/fonts/Lato-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

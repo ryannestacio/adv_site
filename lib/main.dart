@@ -12,13 +12,12 @@ class LawFirmApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Nome do Escritório',
+      title: 'Vasconcelos Advocacia',
       debugShowCheckedModeBanner: true,
       theme: AppTheme.lightTheme,
 
       // CONFIGURAÇÃO CORRETA DE ROTAS:
       initialRoute: '/', // Define por onde começar
-
       // REMOVA ESTA LINHA:
       // home: const HomePage(),
       routes: {

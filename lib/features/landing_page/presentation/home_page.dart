@@ -7,13 +7,56 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Scaffold é o esqueleto da tela
+    final double width = MediaQuery.of(context).size.width;
+
+    final bool isMobile = width < 800;
+
     return Scaffold(
-      backgroundColor: AppColors.offWhite, // Fundo cinza claro profissional
+      backgroundColor: AppColors.offWhite,
+
+      drawer: isMobile
+          ? Drawer(
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  const DrawerHeader(
+                    decoration: BoxDecoration(color: AppColors.navyBlue),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.gavel, size: 50, color: AppColors.gold),
+                        SizedBox(height: 10),
+                        Text(
+                          "Menu",
+                          style: TextStyle(color: Colors.white, fontSize: 24),
+                        ),
+                      ],
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.info),
+                    title: const Text('Sobre'),
+                    onTap: () {
+                      // Navigator.pushNamed(context, '/sobre');
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.list),
+                    title: const Text('Áreas de Atuação'),
+                    onTap: () {},
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.phone),
+                    title: const Text('Contato'),
+                    onTap: () {},
+                  ),
+                ],
+              ),
+            )
+          : null,
       appBar: AppBar(
-        title: const Text("Silva & Associados"), // Nome Fictício
+        title: const Text("Vasconcelos Advocacia"),
         actions: [
-          // Menu simples para Desktop (futuramente pode ser clicável)
           TextButton(
             onPressed: () {},
             child: const Text("Sobre", style: TextStyle(color: Colors.white)),
@@ -180,12 +223,12 @@ class HomePage extends StatelessWidget {
       child: Column(
         children: [
           const Text(
-            "Silva & Associados - Advocacia",
+            "Vasconcelos Advocacia",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
           Text(
-            "Rua Exemplo, 123, Centro - Cidade/UF",
+            "Rua Exemplo, 123, Centro - Aracaju/SE",
             style: TextStyle(color: Colors.white.withOpacity(0.8)),
           ),
           const SizedBox(height: 20),
