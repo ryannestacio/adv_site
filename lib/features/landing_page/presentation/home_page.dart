@@ -4,8 +4,39 @@ import 'widgets/area_card.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final ScrollController _scrollController = ScrollController();
+
+  // Os Rastreadores (GPS) para cada seção
+  final GlobalKey _homeKey = GlobalKey();
+  final GlobalKey _areasKey = GlobalKey();
+  final GlobalKey _contactKey = GlobalKey();
+
+  @override
+  void dispose() {
+    _scrollController.dispose(); // Sempre limpe a bagunça ao sair
+    super.dispose();
+  }
+
+  // A Função Mágica que faz rolar
+  void _scrollToSection(GlobalKey key) {
+    final context = key.currentContext;
+    if (context != null) {
+      // Isso diz ao Flutter: "Faça este widget ficar visível na tela"
+      Scrollable.ensureVisible(
+        context,
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
 
   Future<void> _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
@@ -48,18 +79,22 @@ class HomePage extends StatelessWidget {
                     leading: const Icon(Icons.info),
                     title: const Text('Sobre'),
                     onTap: () {
-                      // Navigator.pushNamed(context, '/sobre');
+                      Navigator.pop(context); // Fecha o drawer
                     },
                   ),
                   ListTile(
                     leading: const Icon(Icons.list),
                     title: const Text('Áreas de Atuação'),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pop(context); // Fecha o drawer
+                    },
                   ),
                   ListTile(
                     leading: const Icon(Icons.phone),
                     title: const Text('Contato'),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pop(context); // Fecha o drawer
+                    },
                   ),
                 ],
               ),
@@ -74,21 +109,21 @@ class HomePage extends StatelessWidget {
             ? []
             : [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => _scrollToSection(_homeKey),
                   child: const Text(
-                    "Sobre",
+                    "Home",
                     style: TextStyle(color: Colors.white, fontFamily: 'Lato'),
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => _scrollToSection(_areasKey),
                   child: const Text(
                     "Áreas",
                     style: TextStyle(color: Colors.white, fontFamily: 'Lato'),
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => _scrollToSection(_contactKey),
                   child: const Text(
                     "Contato",
                     style: TextStyle(color: Colors.white, fontFamily: 'Lato'),
@@ -100,13 +135,30 @@ class HomePage extends StatelessWidget {
 
       // SingleChildScrollView permite rolar a página para baixo
       body: SingleChildScrollView(
+        controller: _scrollController, // 1. CONECTA O CONTROLE AQUI
         child: Column(
           children: [
-            _buildHeroSection(context),
+            // Seção 1: Topo (Hero)
+            Container(
+              key: _homeKey, // <--- Marcador de Localização
+              child: _buildHeroSection(context),
+            ),
+
             const SizedBox(height: 60),
-            _buildAreasSection(context),
+
+            // Seção 2: Áreas de Atuação
+            Container(
+              key: _areasKey, // <--- Marcador de Localização
+              child: _buildAreasSection(context),
+            ),
+
             const SizedBox(height: 60),
-            _buildFooter(),
+
+            // Seção 3: Rodapé / Contato
+            Container(
+              key: _contactKey, // <--- Marcador de Localização
+              child: _buildFooter(),
+            ),
           ],
         ),
       ),
