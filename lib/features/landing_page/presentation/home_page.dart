@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:site_adv/core/theme/app_colors.dart';
 import 'widgets/area_card.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  Future<void> _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw '$url não encontrada.';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,11 +111,12 @@ class HomePage extends StatelessWidget {
       // Botão Flutuante do WhatsApp (Essencial para conversão)
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Ação do WhatsApp virá aqui depois
+          _launchURL("https://wa.me/557998804234");
           print("Abrir WhatsApp");
         },
         backgroundColor: Colors.green,
-        child: const Icon(Icons.chat, color: Colors.white),
+        //child: const Icon(Icons.chat, color: Colors.white),
+        child: const FaIcon(FontAwesomeIcons.whatsapp, color: Colors.white),
       ),
     );
   }
