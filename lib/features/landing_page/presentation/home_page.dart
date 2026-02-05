@@ -66,7 +66,10 @@ class HomePage extends StatelessWidget {
             )
           : null,
       appBar: AppBar(
-        title: const Text("Vasconcelos Advocacia"),
+        title: const Text(
+          "Vasconcelos Advocacia",
+          style: TextStyle(fontSize: 30, fontFamily: 'Prata'),
+        ),
         actions: isMobile
             ? []
             : [
@@ -74,21 +77,21 @@ class HomePage extends StatelessWidget {
                   onPressed: () {},
                   child: const Text(
                     "Sobre",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontFamily: 'Lato'),
                   ),
                 ),
                 TextButton(
                   onPressed: () {},
                   child: const Text(
                     "Áreas",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontFamily: 'Lato'),
                   ),
                 ),
                 TextButton(
                   onPressed: () {},
                   child: const Text(
                     "Contato",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontFamily: 'Lato'),
                   ),
                 ),
                 const SizedBox(width: 20),
@@ -139,13 +142,18 @@ class HomePage extends StatelessWidget {
               fontSize: 32,
               fontWeight: FontWeight.bold,
               color: AppColors.white,
+              fontFamily: 'Prata',
             ),
           ),
           const SizedBox(height: 20),
           const Text(
             "Soluções jurídicas personalizadas para pessoas e empresas.",
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 18, color: AppColors.offWhite),
+            style: TextStyle(
+              fontSize: 18,
+              color: AppColors.offWhite,
+              fontFamily: 'Lato',
+            ),
           ),
           const SizedBox(height: 40),
           ElevatedButton(
@@ -153,7 +161,10 @@ class HomePage extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
             ),
-            child: const Text("FALAR COM UM ESPECIALISTA"),
+            child: const Text(
+              "FALAR COM UM ESPECIALISTA",
+              style: TextStyle(fontFamily: 'Lato'),
+            ),
           ),
         ],
       ),
@@ -173,12 +184,17 @@ class HomePage extends StatelessWidget {
               fontSize: 28,
               fontWeight: FontWeight.bold,
               color: AppColors.navyBlue,
+              fontFamily: 'Prata',
             ),
           ),
           const SizedBox(height: 10),
           const Text(
             "Entenda como podemos ajudar no seu caso",
-            style: TextStyle(fontSize: 16, color: AppColors.grey),
+            style: TextStyle(
+              fontSize: 16,
+              color: AppColors.grey,
+              fontFamily: 'Lato',
+            ),
           ),
           const SizedBox(height: 40),
 

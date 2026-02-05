@@ -82,11 +82,16 @@ flutter:
        - asset: lib/core/assets/fonts/Lato-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-   - family: Trajan Pro
+   - family: Lato
      fonts:
        - asset: lib/core/assets/fonts/Lato-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+   - family: Prata
+     fonts:
+       - asset: lib/core/assets/fonts/Prata-Regular.ttf
+  #     - asset: lib/core/assets/fonts/Lato-Bold.ttf
+  #       weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
