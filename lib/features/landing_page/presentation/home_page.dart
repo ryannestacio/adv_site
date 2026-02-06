@@ -79,21 +79,24 @@ class _HomePageState extends State<HomePage> {
                     leading: const Icon(Icons.info),
                     title: const Text('Sobre'),
                     onTap: () {
-                      Navigator.pop(context); // Fecha o drawer
+                      _scrollToSection(_homeKey);
+                      Navigator.pop(context);
                     },
                   ),
                   ListTile(
                     leading: const Icon(Icons.list),
                     title: const Text('Áreas de Atuação'),
                     onTap: () {
-                      Navigator.pop(context); // Fecha o drawer
+                      _scrollToSection(_areasKey);
+                      Navigator.pop(context);
                     },
                   ),
                   ListTile(
                     leading: const Icon(Icons.phone),
                     title: const Text('Contato'),
                     onTap: () {
-                      Navigator.pop(context); // Fecha o drawer
+                      _scrollToSection(_contactKey);
+                      Navigator.pop(context);
                     },
                   ),
                 ],
@@ -101,10 +104,15 @@ class _HomePageState extends State<HomePage> {
             )
           : null,
       appBar: AppBar(
-        title: const Text(
-          "Vasconcelos Advocacia",
-          style: TextStyle(fontSize: 30, fontFamily: 'Prata'),
-        ),
+        title: isMobile
+            ? const Text(
+                "Vasconcelos Advocacia",
+                style: TextStyle(fontSize: 20, fontFamily: 'Prata'),
+              )
+            : const Text(
+                "Vasconcelos Advocacia",
+                style: TextStyle(fontSize: 30, fontFamily: 'Prata'),
+              ),
         actions: isMobile
             ? []
             : [
@@ -131,6 +139,15 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const SizedBox(width: 20),
               ],
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [AppColors.navyBlue, Color(0xFF2A4065)],
+            ),
+          ),
+        ),
       ),
 
       // SingleChildScrollView permite rolar a página para baixo
@@ -183,7 +200,18 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
       decoration: const BoxDecoration(
         color: AppColors.navyBlue,
-        // Futuramente colocaremos uma imagem de fundo aqui
+        gradient: LinearGradient(
+          // Onde começa o gradiente (Canto Superior Esquerdo)
+          begin: Alignment.topLeft,
+          // Onde termina (Canto Inferior Direito)
+          end: Alignment.bottomRight,
+          // A lista de cores (do início para o fim)
+          colors: [
+            AppColors.navyBlue, // Azul Marinho Escuro
+            Color(0xFF2A4065), // Um azul um pouco mais claro para dar brilho
+            // Você pode colocar quantas cores quiser aqui
+          ],
+        ),
       ),
       child: Column(
         children: [
@@ -315,9 +343,23 @@ class _HomePageState extends State<HomePage> {
         children: [
           const Text(
             "Vasconcelos Advocacia",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontFamily: "Prata",
+            ),
+          ),
+
+          const SizedBox(height: 20),
+          const Text('(79)3556-4234', style: TextStyle(color: Colors.white)),
+          const SizedBox(height: 10),
+
+          const Text(
+            'vasconcelos@contato.com',
+            style: TextStyle(color: Colors.white),
           ),
           const SizedBox(height: 10),
+
           Text(
             "Rua Exemplo, 123, Centro - Aracaju/SE",
             style: TextStyle(color: Colors.white.withOpacity(0.8)),
