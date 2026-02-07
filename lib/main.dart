@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'core/theme/app_theme.dart';
-import 'features/landing_page/presentation/home_page.dart';
+import 'features/landing_page/presentation/pages/home_page.dart';
 
 void main() {
   runApp(const LawFirmApp());

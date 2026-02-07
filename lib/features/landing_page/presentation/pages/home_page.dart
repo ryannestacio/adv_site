@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:site_adv/core/theme/app_colors.dart';
-import 'widgets/area_card.dart';
+import '../widgets/area_card.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
