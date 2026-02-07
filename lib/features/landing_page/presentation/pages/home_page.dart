@@ -3,6 +3,7 @@ import 'package:site_adv/core/theme/app_colors.dart';
 import '../widgets/area_card.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:site_adv/features/landing_page/presentation/widgets/authority_section.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -106,11 +107,11 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: isMobile
             ? const Text(
-                "Vasconcelos Advocacia",
+                "Soares Vasconcelos Advocacia",
                 style: TextStyle(fontSize: 20, fontFamily: 'Prata'),
               )
             : const Text(
-                "Vasconcelos Advocacia",
+                "Soares Vasconcelos Advocacia",
                 style: TextStyle(fontSize: 30, fontFamily: 'Prata'),
               ),
         actions: isMobile
@@ -246,6 +247,8 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(fontFamily: 'Lato'),
             ),
           ),
+          SizedBox(height: 60),
+          AuthoritySection(),
         ],
       ),
     );
@@ -342,7 +345,7 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         children: [
           const Text(
-            "Vasconcelos Advocacia",
+            "Soares Vasconcelos Advocacia",
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
@@ -355,7 +358,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 10),
 
           const Text(
-            'vasconcelos@contato.com',
+            'soaresvasconcelos@contato.com',
             style: TextStyle(color: Colors.white),
           ),
           const SizedBox(height: 10),
