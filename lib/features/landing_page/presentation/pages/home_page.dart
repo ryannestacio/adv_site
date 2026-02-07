@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.zero,
                 children: [
                   const DrawerHeader(
-                    decoration: BoxDecoration(color: AppColors.navyBlue),
+                    decoration: BoxDecoration(color: AppColors.darkGreen),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -144,7 +144,7 @@ class _HomePageState extends State<HomePage> {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [AppColors.navyBlue, Color(0xFF2A4065)],
+              colors: [AppColors.darkGreen, Color(0xFF1C4A3A)],
             ),
           ),
         ),
@@ -199,7 +199,7 @@ class _HomePageState extends State<HomePage> {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
       decoration: const BoxDecoration(
-        color: AppColors.navyBlue,
+        color: AppColors.darkGreen,
         gradient: LinearGradient(
           // Onde começa o gradiente (Canto Superior Esquerdo)
           begin: Alignment.topLeft,
@@ -207,8 +207,8 @@ class _HomePageState extends State<HomePage> {
           end: Alignment.bottomRight,
           // A lista de cores (do início para o fim)
           colors: [
-            AppColors.navyBlue, // Azul Marinho Escuro
-            Color(0xFF2A4065), // Um azul um pouco mais claro para dar brilho
+            AppColors.darkGreen, // Azul Marinho Escuro
+            Color(0xFF1C4A3A), // Um azul um pouco mais claro para dar brilho
             // Você pode colocar quantas cores quiser aqui
           ],
         ),
@@ -263,7 +263,7 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: AppColors.navyBlue,
+              color: AppColors.darkGreen,
               fontFamily: 'Prata',
             ),
           ),
@@ -338,7 +338,7 @@ class _HomePageState extends State<HomePage> {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(40),
-      color: AppColors.royalBlue,
+      color: AppColors.forestGreen,
       child: Column(
         children: [
           const Text(

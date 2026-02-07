@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   //Cores principais do site
-  static const Color navyBlue = Color(0xFF0D1B2A); // Azul bem escuro
-  static const Color royalBlue = Color(0xFF1B263B); // Azul intermediário
+  static const Color darkGreen = Color(0xFF103025); // Azul bem escuro
+  static const Color forestGreen = Color(0xFF1C4A3A); // Azul intermediário
 
   //Cores de destaque
   static const Color gold = Color(0xFFC5A059); // Dourado fosco

@@ -40,7 +40,7 @@ class _AreaCardState extends State<AreaCard> {
               ? Matrix4.identity().scaled(1.02)
               : Matrix4.identity(),
           decoration: BoxDecoration(
-            color: isHovered ? AppColors.navyBlue : AppColors.white,
+            color: isHovered ? AppColors.darkGreen : AppColors.white,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
               color: isHovered
@@ -51,7 +51,7 @@ class _AreaCardState extends State<AreaCard> {
             boxShadow: [
               if (isHovered)
                 BoxShadow(
-                  color: AppColors.navyBlue.withOpacity(0.2),
+                  color: AppColors.darkGreen.withOpacity(0.2),
                   blurRadius: 15,
                   offset: const Offset(0, 10),
                 ),
@@ -81,7 +81,7 @@ class _AreaCardState extends State<AreaCard> {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: isHovered ? AppColors.white : AppColors.navyBlue,
+                  color: isHovered ? AppColors.white : AppColors.darkGreen,
                   fontFamily: 'Prata',
                 ),
               ),
