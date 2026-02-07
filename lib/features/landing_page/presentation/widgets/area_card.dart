@@ -24,18 +24,15 @@ class _AreaCardState extends State<AreaCard> {
 
   @override
   Widget build(BuildContext context) {
-    // Detecta o Mouse (Hover)
     return MouseRegion(
       onEnter: (_) => setState(() => isHovered = true),
       onExit: (_) => setState(() => isHovered = false),
 
-      // O Card em si
       child: GestureDetector(
         onTap: widget.onTap,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
           curve: Curves.easeInOut,
-          // Aumenta levemente a elevação e muda a cor de fundo no hover
           transform: isHovered
               ? Matrix4.identity().scaled(1.02)
               : Matrix4.identity(),
@@ -59,10 +56,9 @@ class _AreaCardState extends State<AreaCard> {
           ),
           padding: const EdgeInsets.all(24),
           child: Column(
-            mainAxisSize: MainAxisSize.min, // Ocupa apenas o espaço necessário
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Ícone Dourado
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
@@ -75,7 +71,6 @@ class _AreaCardState extends State<AreaCard> {
               ),
               const SizedBox(height: 16),
 
-              // Título
               Text(
                 widget.title,
                 style: TextStyle(
@@ -87,7 +82,6 @@ class _AreaCardState extends State<AreaCard> {
               ),
               const SizedBox(height: 8),
 
-              // Descrição
               Text(
                 widget.description,
                 style: TextStyle(

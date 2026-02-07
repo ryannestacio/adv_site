@@ -15,15 +15,8 @@ class LawFirmApp extends StatelessWidget {
       title: 'Vasconcelos Advocacia',
       debugShowCheckedModeBanner: true,
       theme: AppTheme.lightTheme,
-
-      // CONFIGURAÇÃO CORRETA DE ROTAS:
-      initialRoute: '/', // Define por onde começar
-      // REMOVA ESTA LINHA:
-      // home: const HomePage(),
-      routes: {
-        '/': (context) =>
-            const HomePage(), // O Flutter já entende que essa é a Home
-      },
+      initialRoute: '/',
+      routes: {'/': (context) => const HomePage()},
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
           builder: (context) => Scaffold(

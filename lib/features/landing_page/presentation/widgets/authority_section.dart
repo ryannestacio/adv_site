@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// Usei import relativo para garantir que funcione independente do nome do projeto no pubspec
 import '../../../../core/theme/app_colors.dart';
 
 class AuthoritySection extends StatelessWidget {
@@ -7,27 +6,23 @@ class AuthoritySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // LayoutBuilder: O "Fiscal" que mede a largura da tela o tempo todo
     return LayoutBuilder(
       builder: (context, constraints) {
-        // Se for maior que 900px, consideramos Desktop (Row). Senão, Mobile (Column).
         bool isDesktop = constraints.maxWidth >= 900;
 
         return Container(
-          color: AppColors.darkGreen, // Fundo Verde Nobre
+          color: AppColors.darkGreen,
           width: double.infinity,
           child: isDesktop
               ? Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // No Desktop: Texto na Esquerda (50%) | Imagem na Direita (50%)
                     Expanded(child: _buildTextContent(isDesktop)),
                     Expanded(child: _buildImage(context, isDesktop)),
                   ],
                 )
               : Column(
                   children: [
-                    // No Mobile: Imagem no Topo | Texto Embaixo
                     _buildImage(context, isDesktop),
                     _buildTextContent(isDesktop),
                   ],
@@ -39,7 +34,6 @@ class AuthoritySection extends StatelessWidget {
 
   Widget _buildTextContent(bool isDesktop) {
     return Padding(
-      // Mais espaçamento no Desktop, menos no Mobile
       padding: EdgeInsets.symmetric(
         horizontal: isDesktop ? 80 : 20,
         vertical: 60,
@@ -48,7 +42,6 @@ class AuthoritySection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Decoração lateral (Linha Dourada)
           Container(
             padding: const EdgeInsets.only(left: 20),
             decoration: const BoxDecoration(
@@ -62,40 +55,36 @@ class AuthoritySection extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 24,
                     color: AppColors.white,
-                    fontWeight: FontWeight.w300, // Fonte mais fina
+                    fontWeight: FontWeight.w300,
                   ),
                 ),
                 Text(
                   "Advocacia Civil",
                   style: TextStyle(
-                    fontSize: 36, // Título grande e imponente
+                    fontSize: 36,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.gold, // Destaque Dourado
+                    color: AppColors.gold,
                   ),
                 ),
               ],
             ),
           ),
           const SizedBox(height: 30),
-
-          // Texto Descritivo
           const Text(
             "Com mais de 15 anos de atuação, o escritório Soares & Vasconcelos consolidou-se pela ética e pela busca incansável pelos direitos de seus clientes. Nossa abordagem combina conhecimento técnico profundo com um atendimento humanizado e transparente.",
             style: TextStyle(
               fontSize: 16,
-              color: Color(0xFFE0E0E0), // Branco gelo para leitura confortável
-              height: 1.6, // Espaçamento entre linhas (melhora leitura)
+              color: Color(0xFFE0E0E0),
+              height: 1.6,
             ),
             textAlign: TextAlign.justify,
           ),
 
           const SizedBox(height: 40),
-
-          // Botão de Ação Secundário (OutlineButton)
           OutlinedButton(
             onPressed: () {},
             style: OutlinedButton.styleFrom(
-              side: const BorderSide(color: AppColors.gold), // Borda Dourada
+              side: const BorderSide(color: AppColors.gold),
               padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
             ),
             child: const Text(
@@ -112,8 +101,6 @@ class AuthoritySection extends StatelessWidget {
   }
 
   Widget _buildImage(BuildContext context, bool isDesktop) {
-    // Altura fixa no mobile para não ocupar a tela toda
-    // No desktop, deixa expandir
     return SizedBox(
       height: isDesktop ? 600 : 300,
       width: double.infinity,

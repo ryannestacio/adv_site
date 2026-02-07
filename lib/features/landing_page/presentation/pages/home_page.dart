@@ -151,50 +151,34 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
 
-      // SingleChildScrollView permite rolar a página para baixo
       body: SingleChildScrollView(
-        controller: _scrollController, // 1. CONECTA O CONTROLE AQUI
+        controller: _scrollController,
         child: Column(
           children: [
-            // Seção 1: Topo (Hero)
-            Container(
-              key: _homeKey, // <--- Marcador de Localização
-              child: _buildHeroSection(context),
-            ),
+            Container(key: _homeKey, child: _buildHeroSection(context)),
 
             const SizedBox(height: 60),
 
-            // Seção 2: Áreas de Atuação
-            Container(
-              key: _areasKey, // <--- Marcador de Localização
-              child: _buildAreasSection(context),
-            ),
+            Container(key: _areasKey, child: _buildAreasSection(context)),
 
             const SizedBox(height: 60),
 
-            // Seção 3: Rodapé / Contato
-            Container(
-              key: _contactKey, // <--- Marcador de Localização
-              child: _buildFooter(),
-            ),
+            Container(key: _contactKey, child: _buildFooter()),
           ],
         ),
       ),
 
-      // Botão Flutuante do WhatsApp (Essencial para conversão)
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _launchURL("https://wa.me/557998804234");
           print("Abrir WhatsApp");
         },
         backgroundColor: Colors.green,
-        //child: const Icon(Icons.chat, color: Colors.white),
         child: const FaIcon(FontAwesomeIcons.whatsapp, color: Colors.white),
       ),
     );
   }
 
-  // --- SEÇÃO 1: HERO (O Topo impactante do site) ---
   Widget _buildHeroSection(BuildContext context) {
     return Container(
       width: double.infinity,
@@ -202,16 +186,9 @@ class _HomePageState extends State<HomePage> {
       decoration: const BoxDecoration(
         color: AppColors.darkGreen,
         gradient: LinearGradient(
-          // Onde começa o gradiente (Canto Superior Esquerdo)
           begin: Alignment.topLeft,
-          // Onde termina (Canto Inferior Direito)
           end: Alignment.bottomRight,
-          // A lista de cores (do início para o fim)
-          colors: [
-            AppColors.darkGreen, // Azul Marinho Escuro
-            Color(0xFF1C4A3A), // Um azul um pouco mais claro para dar brilho
-            // Você pode colocar quantas cores quiser aqui
-          ],
+          colors: [AppColors.darkGreen, Color(0xFF1C4A3A)],
         ),
       ),
       child: Column(
@@ -254,13 +231,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // --- SEÇÃO 2: ÁREAS DE ATUAÇÃO (Onde usamos seus Cards) ---
   Widget _buildAreasSection(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          // Título da Seção
           const Text(
             "Nossas Áreas de Atuação",
             style: TextStyle(
@@ -281,10 +256,9 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(height: 40),
 
-          // Wrap garante que os cards quebrem linha no celular e fiquem lado a lado no PC
           Wrap(
-            spacing: 24, // Espaço horizontal
-            runSpacing: 24, // Espaço vertical
+            spacing: 24,
+            runSpacing: 24,
             alignment: WrapAlignment.center,
             children: [
               _buildResponsiveCard(
@@ -318,15 +292,13 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // Helper para padronizar o tamanho dos cards
   Widget _buildResponsiveCard({
     required String title,
     required String description,
     required IconData icon,
   }) {
     return SizedBox(
-      width: 300, // Largura fixa para ficar bonito no grid
-      // Altura fixa opcional, mas deixar solto evita overflow de texto
+      width: 300,
       child: AreaCard(
         title: title,
         description: description,
@@ -336,7 +308,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // --- SEÇÃO 3: RODAPÉ SIMPLES ---
   Widget _buildFooter() {
     return Container(
       width: double.infinity,
