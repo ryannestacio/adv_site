@@ -36,62 +36,74 @@ class AuthoritySection extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: isDesktop ? 80 : 20,
-        vertical: 60,
+        vertical: isDesktop ? 80 : 60,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: const EdgeInsets.only(left: 20),
+            padding: const EdgeInsets.only(left: 24),
             decoration: const BoxDecoration(
               border: Border(left: BorderSide(color: AppColors.gold, width: 4)),
             ),
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Referência em",
                   style: TextStyle(
-                    fontSize: 24,
-                    color: AppColors.white,
+                    fontSize: isDesktop ? 28 : 22,
+                    color: Colors.white.withOpacity(0.9),
                     fontWeight: FontWeight.w300,
+                    fontFamily: 'Lato',
+                    letterSpacing: 0.5,
                   ),
                 ),
+                const SizedBox(height: 4),
                 Text(
-                  "Advocacia Civil",
+                  "Advocacia Profissional",
                   style: TextStyle(
-                    fontSize: 36,
+                    fontSize: isDesktop ? 44 : 36,
                     fontWeight: FontWeight.bold,
                     color: AppColors.gold,
+                    fontFamily: 'Prata',
+                    height: 1.1,
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 30),
-          const Text(
+          const SizedBox(height: 40),
+          Text(
             "Com mais de 15 anos de atuação, o escritório Soares & Vasconcelos consolidou-se pela ética e pela busca incansável pelos direitos de seus clientes. Nossa abordagem combina conhecimento técnico profundo com um atendimento humanizado e transparente.",
             style: TextStyle(
-              fontSize: 16,
-              color: Color(0xFFE0E0E0),
-              height: 1.6,
+              fontSize: isDesktop ? 16 : 14,
+              color: Colors.white.withOpacity(0.85),
+              height: 1.7,
+              fontFamily: 'Lato',
+              letterSpacing: 0.3,
             ),
             textAlign: TextAlign.justify,
           ),
-
-          const SizedBox(height: 40),
+          const SizedBox(height: 50),
           OutlinedButton(
             onPressed: () {},
             style: OutlinedButton.styleFrom(
-              side: const BorderSide(color: AppColors.gold),
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
+              side: const BorderSide(color: AppColors.gold, width: 2),
+              padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+              ),
             ),
             child: const Text(
               "CONHECER NOSSA HISTÓRIA",
               style: TextStyle(
                 color: AppColors.gold,
                 fontWeight: FontWeight.bold,
+                fontSize: 13,
+                letterSpacing: 1,
+                fontFamily: 'Lato',
               ),
             ),
           ),

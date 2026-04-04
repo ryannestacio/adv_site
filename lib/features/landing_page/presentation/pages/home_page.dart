@@ -107,12 +107,21 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: isMobile
             ? const Text(
-                "Soares Vasconcelos Advocacia",
-                style: TextStyle(fontSize: 20, fontFamily: 'Prata'),
+                "Soares Vasconcelos",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'Prata',
+                  fontWeight: FontWeight.w600,
+                ),
               )
             : const Text(
                 "Soares Vasconcelos Advocacia",
-                style: TextStyle(fontSize: 30, fontFamily: 'Prata'),
+                style: TextStyle(
+                  fontSize: 28,
+                  fontFamily: 'Prata',
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 0.5,
+                ),
               ),
         actions: isMobile
             ? []
@@ -121,24 +130,39 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () => _scrollToSection(_homeKey),
                   child: const Text(
                     "Home",
-                    style: TextStyle(color: Colors.white, fontFamily: 'Lato'),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Lato',
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.3,
+                    ),
                   ),
                 ),
                 TextButton(
                   onPressed: () => _scrollToSection(_areasKey),
                   child: const Text(
                     "Áreas",
-                    style: TextStyle(color: Colors.white, fontFamily: 'Lato'),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Lato',
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.3,
+                    ),
                   ),
                 ),
                 TextButton(
                   onPressed: () => _scrollToSection(_contactKey),
                   child: const Text(
                     "Contato",
-                    style: TextStyle(color: Colors.white, fontFamily: 'Lato'),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Lato',
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.3,
+                    ),
                   ),
                 ),
-                const SizedBox(width: 20),
+                const SizedBox(width: 24),
               ],
         flexibleSpace: Container(
           decoration: const BoxDecoration(
@@ -149,6 +173,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
+        elevation: 1,
       ),
 
       body: SingleChildScrollView(
@@ -182,7 +207,7 @@ class _HomePageState extends State<HomePage> {
   Widget _buildHeroSection(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 20),
       decoration: const BoxDecoration(
         color: AppColors.darkGreen,
         gradient: LinearGradient(
@@ -197,34 +222,45 @@ class _HomePageState extends State<HomePage> {
             "Excelência e Ética na Defesa dos Seus Direitos",
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 32,
+              fontSize: 44,
               fontWeight: FontWeight.bold,
               color: AppColors.white,
               fontFamily: 'Prata',
+              height: 1.2,
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 24),
           const Text(
-            "Soluções jurídicas personalizadas para pessoas e empresas.",
+            "Soluções jurídicas personalizadas para pessoas e empresas. Com experiência e dedicação, transformamos desafios legais em oportunidades.",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 18,
               color: AppColors.offWhite,
               fontFamily: 'Lato',
+              height: 1.5,
             ),
           ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 48),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              _launchURL("https://wa.me/557998804234");
+            },
             style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+              backgroundColor: AppColors.gold,
+              foregroundColor: AppColors.darkGreen,
             ),
             child: const Text(
               "FALAR COM UM ESPECIALISTA",
-              style: TextStyle(fontFamily: 'Lato'),
+              style: TextStyle(
+                fontFamily: 'Lato',
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+                letterSpacing: 0.5,
+              ),
             ),
           ),
-          SizedBox(height: 60),
+          const SizedBox(height: 80),
           AuthoritySection(),
         ],
       ),
@@ -254,7 +290,7 @@ class _HomePageState extends State<HomePage> {
               fontFamily: 'Lato',
             ),
           ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 50),
 
           Wrap(
             spacing: 24,
@@ -283,7 +319,7 @@ class _HomePageState extends State<HomePage> {
                 title: "Direito Previdenciário",
                 description:
                     "Aposentadorias, auxílios e revisões junto ao INSS.",
-                icon: Icons.elderly,
+                icon: Icons.card_membership,
               ),
             ],
           ),
@@ -313,38 +349,143 @@ class _HomePageState extends State<HomePage> {
       width: double.infinity,
       padding: const EdgeInsets.all(40),
       color: AppColors.forestGreen,
-      child: Column(
+      child: Stack(
         children: [
-          const Text(
-            "Soares Vasconcelos Advocacia",
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontFamily: "Prata",
+          Column(
+            children: [
+              // Seção de Serviços e Informações
+              const SizedBox(height: 20),
+              const Text(
+                "Soares Vasconcelos Advocacia",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                  fontFamily: "Prata",
+                ),
+              ),
+              const SizedBox(height: 30),
+
+              // Grid de informações (desktop) ou coluna (mobile)
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Wrap(
+                  alignment: WrapAlignment.spaceEvenly,
+                  spacing: 40,
+                  runSpacing: 40,
+                  children: [
+                    // Serviços
+                    _buildFooterSection(
+                      title: "SERVIÇOS",
+                      items: const [
+                        "Direito Civil",
+                        "Direito Trabalhista",
+                        "Direito Criminal",
+                        "Direito Previdenciário",
+                      ],
+                    ),
+
+                    // Contato
+                    _buildFooterSection(
+                      title: "CONTATO",
+                      items: const [
+                        "(79) 3556-4234",
+                        "soaresvasconcelos@email.com",
+                        "Aracaju, SE",
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 50),
+              Divider(color: Colors.white.withOpacity(0.2), thickness: 1),
+              const SizedBox(height: 30),
+
+              Text(
+                "© 2026 Soares Vasconcelos Advocacia. Todos os direitos reservados.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.7),
+                  fontSize: 12,
+                ),
+              ),
+            ],
+          ),
+
+          // Seção "Desenvolvido por" com logo no canto inferior esquerdo
+          Positioned(
+            bottom: 5,
+            left: 40,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Desenvolvido por:",
+                  style: TextStyle(
+                    color: Colors.white.withOpacity(0.8),
+                    fontSize: 12,
+                    fontFamily: 'Lato',
+                    letterSpacing: 0.5,
+                  ),
+                ),
+                const SizedBox(width: 5),
+                GestureDetector(
+                  onTap: () {
+                    _launchURL("http://ryanestaciodev.web.app");
+                  },
+                  child: MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: Image.asset(
+                      'lib/core/assets/images/RE-logo-branca.png',
+                      height: 55,
+                      width: 55,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-
-          const SizedBox(height: 20),
-          const Text('(79)3556-4234', style: TextStyle(color: Colors.white)),
-          const SizedBox(height: 10),
-
-          const Text(
-            'soaresvasconcelos@contato.com',
-            style: TextStyle(color: Colors.white),
-          ),
-          const SizedBox(height: 10),
-
-          Text(
-            "Rua Exemplo, 123, Centro - Aracaju/SE",
-            style: TextStyle(color: Colors.white.withOpacity(0.8)),
-          ),
-          const SizedBox(height: 20),
-          Text(
-            "© 2026 Desenvolvido pela AllTech TI",
-            style: TextStyle(color: AppColors.gold, fontSize: 12),
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildFooterSection({
+    required String title,
+    required List<String> items,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            color: AppColors.gold,
+            fontWeight: FontWeight.bold,
+            fontSize: 12,
+            letterSpacing: 1,
+          ),
+        ),
+        const SizedBox(height: 15),
+        ...items.map(
+          (item) => Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Text(
+              item,
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.8),
+                fontSize: 13,
+                fontFamily: 'Lato',
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
